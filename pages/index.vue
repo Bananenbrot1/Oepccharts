@@ -3,12 +3,13 @@
     class="mainwrapper"
     fluid
   >
-    <b-row class="setheight">
-      <client-only placeholder="Loading...">
+    <b-row>
+      <client-only placeholder="
+        Loading...">
         <b-col>
           <apexcharts
             type="bar"
-            height=400
+            height=650
             :options="options_damen"
             :series="series_damen"
           ></apexcharts>
@@ -16,15 +17,13 @@
         <b-col>
           <apexcharts
             type="bar"
-            height=400
+            height=650
             :options="options_herren"
             :series="series_herren"
           ></apexcharts>
         </b-col>
       </client-only>
     </b-row>
-    <div class="d-md-none">hide on screens wider than lg</div>
-    <div class="d-none d-md-block">hide on screens smaller than lg</div>
   </b-container>
 </template>
 
@@ -65,7 +64,12 @@ export default {
       options_herren: {
         plotOptions: {
           bar: {
-            horizontal: true
+            horizontal: true,
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: "bottom"
+            }
           }
         },
         colors: ["#008FFB"],
@@ -101,7 +105,12 @@ export default {
       options_damen: {
         plotOptions: {
           bar: {
-            horizontal: true
+            horizontal: true,
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: "bottom"
+            }
           }
         },
         colors: ["#FF4560"],
@@ -149,6 +158,17 @@ export default {
     };
   },
   methods: {
+    isMobile() {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     async updateChart() {
       const ref = fireDb.collection("teams");
       let snap;
