@@ -19,6 +19,7 @@
     "firebase": "^7.2.0",
     "lodash": "^4.17.15",
     "nuxt": "^2.4.0",
+    "nuxt-basic-auth-module": "^1.2.0",
     "vue-apexcharts": "^1.5.0",
     "vue-window-size": "^0.2.3"
   },

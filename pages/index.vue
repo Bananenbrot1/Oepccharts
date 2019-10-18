@@ -8,6 +8,7 @@
         <b-col>
           <apexcharts
             type="bar"
+            height=400
             :options="options_damen"
             :series="series_damen"
           ></apexcharts>
@@ -15,12 +16,15 @@
         <b-col>
           <apexcharts
             type="bar"
+            height=400
             :options="options_herren"
             :series="series_herren"
           ></apexcharts>
         </b-col>
       </client-only>
     </b-row>
+    <div class="d-md-none">hide on screens wider than lg</div>
+    <div class="d-none d-md-block">hide on screens smaller than lg</div>
   </b-container>
 </template>
 
@@ -38,7 +42,7 @@ export default {
     ...mapState(["marken", "teams"])
   },
   created() {
-    this.interval = setInterval(() => this.updateChart(), 1000);
+    this.interval = setInterval(() => this.updateChart(), 30000);
   },
   mounted: function() {
     let herrenTeams = _.filter(this.teams, { color: "primary" });
@@ -166,7 +170,6 @@ export default {
       let damenTeams = _.filter(updateTeam, { color: "danger" });
       let herrenTeamAmounts = _.map(herrenTeams, "amount");
       let damenTeamAmounts = _.map(damenTeams, "amount");
-      console.log(herrenTeamAmounts);
       this.series_herren = [{ data: herrenTeamAmounts }];
       this.series_damen = [
         {

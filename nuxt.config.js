@@ -38,8 +38,15 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     // Doc: https://bootstrap-vue.js.org/docs/
-    "bootstrap-vue/nuxt"
+    "bootstrap-vue/nuxt",
+    "nuxt-basic-auth-module"
   ],
+  basic: {
+    name: "oepc",
+    pass: "vadizlaw",
+    enabled: "true", // require boolean value(nullable)
+    match: "/eingabe"
+  },
   /*
    ** Axios module configuration
    */
