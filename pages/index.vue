@@ -9,7 +9,7 @@
         <b-col>
           <apexcharts
             type="bar"
-            height=650
+            height=550
             :options="options_damen"
             :series="series_damen"
           ></apexcharts>
@@ -17,7 +17,7 @@
         <b-col>
           <apexcharts
             type="bar"
-            height=650
+            height=550
             :options="options_herren"
             :series="series_herren"
           ></apexcharts>
